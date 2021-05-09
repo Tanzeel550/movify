@@ -9,7 +9,7 @@ const CreatePage = props => {
     <FormComponent
       actionType="add"
       handleFormSubmit={async data => {
-        await props.startCreateMovie(data);
+        await props.startCreateMovie({ data });
         props.history.push('/');
       }}
     />
@@ -23,12 +23,16 @@ const CreatePage = props => {
   );
 };
 
-const mapStateToProps = state => ({
-  emailVerified: state.auth.user.emailVerified,
+const mapStateToProps = ({
+  auth: {
+    user: { emailVerified },
+  },
+}) => ({
+  emailVerified,
 });
 
 const mapDispatchToProps = dispatch => ({
-  startCreateMovie: data => dispatch(startCreateMovie(data)),
+  startCreateMovie: ({ data }) => dispatch(startCreateMovie({ data })),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreatePage);

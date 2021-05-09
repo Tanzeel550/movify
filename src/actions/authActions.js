@@ -15,6 +15,9 @@ export const startLoginWithGoogle = async () => {
   try {
     await firebase.auth().signInWithPopup(googleAuthProvider);
   } catch (e) {
+    console.log(e.message);
+    console.error(e);
+
     switch (e.code) {
       case 'auth/account-exists-with-different-credential':
         throw new Error(
@@ -51,6 +54,8 @@ export const startOnlyLogin = async ({ email, password }) => {
   try {
     await loginUser({ email, password });
   } catch (e) {
+    console.log(e.message);
+    console.error(e);
     throw e;
   }
 };
@@ -64,6 +69,8 @@ export const startLoginAndSendEmailLink = async (
     await startLogout();
     await startSendLoginLinkToEmail({ email, password }, redirectTo);
   } catch (e) {
+    console.log(e.message);
+    console.error(e);
     throw e;
   }
 };
@@ -72,7 +79,8 @@ const loginUser = async ({ email, password }) => {
   try {
     await firebase.auth().signInWithEmailAndPassword(email, password);
   } catch (e) {
-    console.log(e);
+    console.log(e.message);
+    console.error(e);
     switch (e.code) {
       case 'auth/invalid-email':
         throw new Error(
@@ -104,6 +112,8 @@ export const startCheckUserEmailLink = async link => {
       window.localStorage.removeItem('password');
     }
   } catch (e) {
+    console.log(e.message);
+    console.error(e);
     throw e;
   }
 };
@@ -120,6 +130,8 @@ export const startSendLoginLinkToEmail = async (
     window.localStorage.setItem('email', email);
     window.localStorage.setItem('password', password);
   } catch (e) {
+    console.log(e.message);
+    console.error(e);
     throw new Error('An Unknown Error Occurred. Please Try Again');
   }
 };
