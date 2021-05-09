@@ -1,0 +1,13 @@
+.movie__form {
+  background: linear-gradient(to right, $purple-color-1, $purple-color-2);
+  color: white;
+  padding: 5%;
+
+  img {
+    box-shadow: 0 0 30px 0 rgba(white, 0.75);
+  }
+
+  &--label-name {
+    position: relative;
+  }
+}

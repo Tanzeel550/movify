@@ -1,0 +1,18 @@
+.search {
+  &--container {
+    position: absolute;
+    width: 350px;
+    background-color: white;
+    top: 70px;
+    left: 30px;
+  }
+
+  &--item {
+    border: 1px solid $border-color;
+    color: $text-color;
+
+    &:hover {
+      background-color: rgba($purple-color-1, 0.1);
+    }
+  }
+}
