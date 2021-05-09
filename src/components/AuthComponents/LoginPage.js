@@ -8,33 +8,38 @@ import {
   startOnlyLogin,
 } from '../../actions/authActions';
 import Modal from '../Utils/MessageModal';
-import { setError } from '../../actions/errorActions';
-import { connect } from 'react-redux';
 
 class LoginPage extends React.Component {
-  state = {
-    email: '',
-    password: '',
-    message: null,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      password: '',
+      message: null,
+    };
+    this.handleTextChange = this.handleTextChange.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
 
-  setMessage(message) {
-    this.setState({ message });
+    this.setMessage = this.setMessage.bind(this);
   }
 
-  handleTextChange(e) {
+  setMessage = message => this.setState({ message });
+
+  handleTextChange = e => {
     this.setState({
       [e.target.type]: e.target.value,
     });
+  };
+
+  async componentDidMount() {
+    try {
+      await startCheckUserEmailLink(window.location.href);
+    } catch (e) {
+      this.setMessage(e.message);
+    }
   }
 
-  componentDidMount() {
-    startCheckUserEmailLink(window.location.href)
-      .then()
-      .catch(e => this.props.setError({ error: e.message }));
-  }
-
-  async handleFormSubmit(e) {
+  handleFormSubmit = async e => {
     e.preventDefault();
     try {
       if (!validator.isEmail(this.state.email))
@@ -50,9 +55,9 @@ class LoginPage extends React.Component {
         password: '',
       });
     } catch (e) {
-      setError({ error: e.message, title: 'Login' });
+      this.setMessage(e.message);
     }
-  }
+  };
 
   render() {
     return (
@@ -130,4 +135,4 @@ class LoginPage extends React.Component {
   }
 }
 
-export default connect(null, { setError })(LoginPage);
+export default LoginPage;
