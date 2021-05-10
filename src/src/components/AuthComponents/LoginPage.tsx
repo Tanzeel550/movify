@@ -65,7 +65,7 @@ class LoginPage extends React.Component {
 
             <div
               className="form__input--wrapper"
-              data-validate="Username is required"
+              movie-validate="Username is required"
             >
               <span className="form__input--label">Username</span>
               <input
@@ -77,12 +77,12 @@ class LoginPage extends React.Component {
                 onChange={this.handleTextChange}
                 required
               />
-              <span className="form__input--icon" data-symbol="&#xf206;" />
+              <span className="form__input--icon" movie-symbol="&#xf206;" />
             </div>
 
             <div
               className="form__input--wrapper "
-              data-validate="Password is required"
+              movie-validate="Password is required"
             >
               <span className="form__input--label">Password</span>
               <input
@@ -94,7 +94,7 @@ class LoginPage extends React.Component {
                 onChange={this.handleTextChange}
                 required
               />
-              <span className="form__input--icon" data-symbol="&#xf190;" />
+              <span className="form__input--icon" movie-symbol="&#xf190;" />
             </div>
 
             {/*<div className="text-right forgot-password">*/}

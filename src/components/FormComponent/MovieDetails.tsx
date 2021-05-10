@@ -1,6 +1,11 @@
 import React from 'react';
+import { APIMovieResultByTitle } from '../../consts/actionTypes';
 
-const MovieDetails = ({ movie }) => {
+type Props = {
+  movie: APIMovieResultByTitle;
+};
+
+const MovieDetails: React.FC<Props> = ({ movie }: Props) => {
   const {
     Title,
     Released,

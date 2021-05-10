@@ -10,125 +10,139 @@ import PromiseLoading from '../Utils/PromiseLoading';
 import MovieDetails from './MovieDetails';
 import { trackPromise } from 'react-promise-tracker';
 import { PROMISE_AREAS } from '../../consts/config';
+import {
+  APIMovieResultByTitle,
+  APIMovieResultsBySearch,
+} from '../../consts/actionTypes';
 
-class FormComponent extends React.Component {
-  public todayDate: any;
-  public state: any;
-  public props: any;
-  public setState: any;
-  public name: any;
-  public watched: any;
-  public dateWatched: any;
-  public whatYouLearnt: any;
-  public Poster: any;
-  public createdAt: any;
-  public updatedAt: any;
+type Movie = {
+  name: string;
+  watched: boolean;
+  dateWatched: any;
+  whatYouLearnt: string;
+  Poster: string;
+  createdAt: number;
+};
 
-  constructor(props) {
-    super(props);
+type Props = {
+  movie?: Movie;
+  actionType: 'update' | 'add';
+  handleFormSubmit: (data: Movie) => {};
+  handleMovieDeletion?: () => {};
+};
 
-    this.todayDate = this.formatDate(Date.now());
-    this.state = {
-      name: this.props.movie?.name || '',
-      watched: this.props.movie?.watched || true,
-      dateWatched: this.props.movie?.dateWatched || this.todayDate,
-      whatYouLearnt: this.props.movie?.whatYouLearnt || '',
-      Poster: this.props.movie?.Poster || '',
-      createdAt: this.props.movie?.createdAt || Date.now(),
-      updatedAt: Date.now(),
+type State = {
+  todayDate: string;
 
-      searchedMovies: null,
-      selectedMovie: null,
-    };
+  name: string;
+  watched: boolean;
+  dateWatched: number;
+  whatYouLearnt: string;
+  Poster: string;
+  createdAt: number;
+  updatedAt: number;
 
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+  selectedMovie: any;
+  searchedMovies: any;
+};
 
-    this.handleSearchItemClick = this.handleSearchItemClick.bind(this);
+class MovieForm extends React.Component<Props, State> {
+  state: State = {
+    todayDate: this.formatDate(Date.now()),
+    name: this.props.movie?.name || '',
+    watched: this.props.movie?.watched || true,
+    dateWatched: this.props.movie?.dateWatched || this.state.todayDate,
+    whatYouLearnt: this.props.movie?.whatYouLearnt || '',
+    Poster: this.props.movie?.Poster || '',
+    createdAt: this.props.movie?.createdAt || Date.now(),
+    updatedAt: Date.now(),
 
-    this.handleDateChange = this.handleDateChange.bind(this);
-    this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleTextChange = this.handleTextChange.bind(this);
-    this.handleWatchedChange = this.handleWatchedChange.bind(this);
-  }
+    searchedMovies: null,
+    selectedMovie: null,
+  };
 
   async componentDidMount() {
     document
-      .getElementById('dateWatched')
+      .getElementById('dateWatched')!
       .setAttribute('max', this.formatDate(new Date()));
     if (this.props.movie) {
       const selectedMovie = await trackPromise(
-        getMovieByTitle(this.props.movie.name),
+        getMovieByTitle({ text: this.state.name }),
         PROMISE_AREAS.GET_MOVIE_BY_TITLE
       );
       this.setState({ selectedMovie });
     }
   }
 
-  handleSearchItemClick = async e => {
-    const itemClicked = e.target.closest('.search--item');
+  async handleSearchItemClick(title: string): Promise<void> {
     this.setState({ selectedMovie: null });
-    const selectedMovie = await trackPromise(
-      getMovieByTitle(itemClicked.dataset.movieName),
+    // @ts-ignore
+    const selectedMovie: APIMovieResultByTitle = await trackPromise(
+      getMovieByTitle({ text: title }),
       PROMISE_AREAS.GET_MOVIE_BY_TITLE
     );
+
     this.setState({
       searchedMovies: [],
-      name: selectedMovie.Title,
-      Poster: selectedMovie.Poster,
+      name: selectedMovie.Title!,
+      Poster: selectedMovie.Poster!,
       selectedMovie,
     });
-  };
+  }
 
-  formatDate = date => {
+  formatDate(date: any): string {
     const dateObj = new Date(date);
     const day = `${dateObj.getDate()}`.padStart(2, '0');
     const mm = `${dateObj.getMonth() + 1}`.padStart(2, '0');
     const yyyy = dateObj.getFullYear();
     return `${yyyy}-${mm}-${day}`;
-  };
+  }
 
-  handleFormSubmit = e => {
+  handleFormSubmit(e: React.FormEvent): void {
     e.preventDefault();
-
-    const {
-      name,
-      watched,
-      dateWatched,
-      whatYouLearnt,
-      Poster,
-      createdAt,
-      updatedAt,
-    } = this.state;
     const movie = {
-      name,
-      watched,
-      dateWatched,
-      whatYouLearnt,
-      Poster,
-      createdAt,
-      updatedAt,
+      name: this.state.name,
+      watched: this.state.watched,
+      dateWatched: this.state.dateWatched,
+      whatYouLearnt: this.state.whatYouLearnt,
+      Poster: this.state.Poster,
+      createdAt: this.state.createdAt,
+      updatedAt: this.state.updatedAt,
     };
-
     this.props.handleFormSubmit(movie);
-  };
+  }
 
-  handleNameChange = async e => {
+  async handleNameChange(
+    e: React.ChangeEvent<HTMLInputElement>
+  ): Promise<void> {
     await this.setState({ name: e.target.value });
 
     this.setState({ searchedMovies: [] });
-    const searchedMovies = await trackPromise(
-      searchMovieByText(this.state.name),
+    // @ts-ignore
+    const searchedMovies: APIMovieResultsBySearch = await trackPromise(
+      searchMovieByText({ text: this.state.name }),
       PROMISE_AREAS.SEARCH_MOVIE_BY_TEXT
     );
     if (!searchedMovies) return;
 
     this.setState({ searchedMovies: searchedMovies.slice(0, 5) });
-  };
+  }
 
-  handleTextChange = e => this.setState({ whatYouLearnt: e.target.value });
-  handleDateChange = e =>
-    this.setState({ dateWatched: this.formatDate(e.target.value) });
-  handleWatchedChange = e => this.setState({ watched: e.target.checked });
+  handleTextChange(e: React.ChangeEvent<HTMLInputElement>): void {
+    this.setState({ whatYouLearnt: e.target.value });
+  }
+
+  handleDateChange(e: React.ChangeEvent<HTMLInputElement>): void {
+    this.setState({ dateWatched: +this.formatDate(e.target.value) });
+  }
+
+  handleWatchedChange(e: React.ChangeEvent<HTMLInputElement>): void {
+    this.setState({ watched: e.target.checked });
+  }
+
+  handleTextAreaChange(e: React.ChangeEvent<HTMLTextAreaElement>): void {
+    this.setState({ whatYouLearnt: e.target.value });
+  }
 
   render() {
     return (
@@ -156,7 +170,7 @@ class FormComponent extends React.Component {
                     type="checkbox"
                     id="isWatched"
                     className="form-check"
-                    value={this.state.watched}
+                    value={`${this.state.watched}`}
                     defaultChecked={true}
                     onChange={this.handleWatchedChange}
                   />
@@ -164,9 +178,12 @@ class FormComponent extends React.Component {
               </div>
               {this.state.watched && (
                 <WatchedComponent
-                  handleTextChange={this.handleTextChange}
+                  handleTextChange={this.handleTextAreaChange}
                   handleDateChange={this.handleDateChange}
-                  state={this.state}
+                  movie={{
+                    dateWatched: this.state.dateWatched,
+                    whatYouLearnt: this.state.whatYouLearnt,
+                  }}
                 />
               )}
               {this.props.actionType === 'add' && (
@@ -218,4 +235,4 @@ class FormComponent extends React.Component {
   }
 }
 
-export default FormComponent;
+export default MovieForm;

@@ -1,15 +1,28 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect, ConnectedProps } from 'react-redux';
 import { startCreateMovie } from '../actions/moviesActions';
-import FormComponent from './FormComponent/FormComponent';
+import MovieForm from './FormComponent/MovieForm';
 import VerifyEmailBtn from './Utils/VerifyEmailBtn';
 
-const CreatePage = props => {
+type StateTypes = {
+  auth: { user: { emailVerified: boolean } };
+  history: { push: (link: string) => {} };
+};
+
+const mapStateToProps = ({ auth, history }: StateTypes) => ({
+  emailVerified: auth.user.emailVerified,
+  history,
+});
+
+const connector = connect(mapStateToProps, { startCreateMovie });
+type PropsFromRedux = ConnectedProps<typeof connector>;
+
+const CreatePage = (props: PropsFromRedux) => {
   return props.emailVerified ? (
-    <FormComponent
+    <MovieForm
       actionType="add"
-      handleFormSubmit={async data => {
-        await props.startCreateMovie({ data });
+      handleFormSubmit={async movie => {
+        await props.startCreateMovie({ movie });
         props.history.push('/');
       }}
     />
@@ -23,16 +36,4 @@ const CreatePage = props => {
   );
 };
 
-const mapStateToProps = ({
-  auth: {
-    user: { emailVerified },
-  },
-}) => ({
-  emailVerified,
-});
-
-const mapDispatchToProps = dispatch => ({
-  startCreateMovie: ({ data }) => dispatch(startCreateMovie({ data })),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(CreatePage);
+export default connector(CreatePage);

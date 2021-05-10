@@ -7,7 +7,7 @@ const SearchComponent = ({ movies, handleSearchItemClick }) => (
         className="col-sm-12 row search--item"
         onClick={handleSearchItemClick}
         key={index}
-        data-movie-name={movie.Title}
+        movie-movie-name={movie.Title}
       >
         <img src={movie.Poster} alt="Movie" className="col-sm-3" />
         <div className="col-sm-9">{movie.Title}</div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import FormComponent from './FormComponent/FormComponent';
+import MovieForm from './FormComponent/MovieForm';
 import { connect } from 'react-redux';
 import { startDeleteMovie, startUpdateMovie } from '../actions/moviesActions';
 import { Redirect } from 'react-router';
@@ -7,7 +7,7 @@ import { Redirect } from 'react-router';
 const UpdatePage = props =>
   props.emailVerified ? (
     props.movie ? (
-      <FormComponent
+      <MovieForm
         actionType="update"
         movie={props.movie}
         handleFormSubmit={async data => {

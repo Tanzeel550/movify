@@ -1,13 +1,26 @@
 import React from 'react';
 
-const WatchedComponent = ({ handleTextChange, handleDateChange, state }) => (
+type Props = {
+  handleTextChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  handleDateChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  movie: {
+    dateWatched: number;
+    whatYouLearnt: string;
+  };
+};
+
+const WatchedComponent = ({
+  handleTextChange,
+  handleDateChange,
+  movie,
+}: Props) => (
   <div className="col-sm-12 row">
     <div className="col-lg-4 col-md-4">
       <label htmlFor="dateWatched">Date Watched:</label>
       <input
         type="date"
         id="dateWatched"
-        value={state.dateWatched}
+        value={movie.dateWatched}
         onChange={handleDateChange}
         className="form-control"
       />
@@ -16,7 +29,7 @@ const WatchedComponent = ({ handleTextChange, handleDateChange, state }) => (
     <div className="col-sm-12">
       <label htmlFor="text-area">What You Learnt from it?</label>
       <textarea
-        value={state.whatYouLearnt}
+        value={movie.whatYouLearnt}
         onChange={handleTextChange}
         id="text-area"
         className="form-control"

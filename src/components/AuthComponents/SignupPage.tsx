@@ -55,7 +55,7 @@ const SingUpPage: React.FC<Props> = ({ setError }: Props) => {
 
           <div
             className="form__input--wrapper"
-            data-validate="Username is required"
+            movie-validate="Username is required"
           >
             <span className="form__input--label">Username</span>
             <input
@@ -67,12 +67,12 @@ const SingUpPage: React.FC<Props> = ({ setError }: Props) => {
               onChange={handleEmailChange}
               required
             />
-            <span className="form__input--icon" data-symbol="&#xf206;" />
+            <span className="form__input--icon" movie-symbol="&#xf206;" />
           </div>
 
           <div
             className="form__input--wrapper"
-            data-validate="Password is required"
+            movie-validate="Password is required"
           >
             <span className="form__input--label">Password</span>
             <input
@@ -84,12 +84,12 @@ const SingUpPage: React.FC<Props> = ({ setError }: Props) => {
               onChange={handlePasswordChange}
               required
             />
-            <span className="form__input--icon" data-symbol="&#xf190;" />
+            <span className="form__input--icon" movie-symbol="&#xf190;" />
           </div>
 
           <div
             className="form__input--wrapper"
-            data-validate="Confirm Password is required"
+            movie-validate="Confirm Password is required"
           >
             <span className="form__input--label">Confirm Password</span>
             <input
@@ -101,7 +101,7 @@ const SingUpPage: React.FC<Props> = ({ setError }: Props) => {
               onChange={handlePasswordConfirmChange}
               required
             />
-            <span className="form__input--icon" data-symbol="&#xf190;" />
+            <span className="form__input--icon" movie-symbol="&#xf190;" />
           </div>
 
           <div className="form__button--container">

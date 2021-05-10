@@ -6,9 +6,16 @@ import GoogleFB from './GoogleFB';
 import { startLoginWithEmailPass } from '../../actions/authActions';
 import { setError } from '../../actions/errorActions';
 import { connect } from 'react-redux';
+import { ErrorActionsReturnType } from '../../consts/actionTypes';
 
 type Props = {
-  setError: (...props: any) => {};
+  setError: ({
+    message,
+    title,
+  }: {
+    message: string;
+    title: string;
+  }) => ErrorActionsReturnType;
 };
 
 const LoginPage: React.FC<Props> = ({ setError }: Props) => {
@@ -32,11 +39,13 @@ const LoginPage: React.FC<Props> = ({ setError }: Props) => {
     }
   };
 
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setEmail(e.target.value);
   };
 
-  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePasswordChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ): void => {
     setPassword(e.target.value);
   };
 
@@ -48,7 +57,7 @@ const LoginPage: React.FC<Props> = ({ setError }: Props) => {
 
           <div
             className="form__input--wrapper"
-            data-validate="Username is required"
+            movie-validate="Username is required"
           >
             <span className="form__input--label">Username</span>
             <input
@@ -60,12 +69,12 @@ const LoginPage: React.FC<Props> = ({ setError }: Props) => {
               onChange={handleEmailChange}
               required
             />
-            <span className="form__input--icon" data-symbol="&#xf206;" />
+            <span className="form__input--icon" movie-symbol="&#xf206;" />
           </div>
 
           <div
             className="form__input--wrapper "
-            data-validate="Password is required"
+            movie-validate="Password is required"
           >
             <span className="form__input--label">Password</span>
             <input
@@ -77,7 +86,7 @@ const LoginPage: React.FC<Props> = ({ setError }: Props) => {
               onChange={handlePasswordChange}
               required
             />
-            <span className="form__input--icon" data-symbol="&#xf190;" />
+            <span className="form__input--icon" movie-symbol="&#xf190;" />
           </div>
 
           {/*<div className="text-right forgot-password">*/}
