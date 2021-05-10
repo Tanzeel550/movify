@@ -1,7 +1,7 @@
 import React from 'react';
 import { startLoginWithGoogle } from '../../actions/authActions';
 
-const GoogleFB = () => (
+const GoogleFB: React.FC = () => (
   <div className="flex-c-m">
     <button className="social__item facebook-icon">
       <i className="zmdi zmdi-facebook" />

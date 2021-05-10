@@ -40,7 +40,7 @@ const AppRouter = ({ clearError, error, text }) => (
       </Route>
     </Switch>
     <Footer />
-    <MessageModal message={error} text={text} clearMessage={clearError} />
+    <MessageModal message={error} title={text} clearMessage={clearError} />
   </Router>
 );
 

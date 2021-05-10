@@ -1,12 +1,14 @@
-import { ERROR_TYPE } from '../consts/actionTypes';
-import { AuthActionsType } from '../consts/actionTypes';
+import { ErrorActionsReturnType, ErrorType } from '../consts/actionTypes';
 
-export const setError = ({ error, title }: ERROR_TYPE): AuthActionsType => ({
+export const setError = ({
+  message,
+  title,
+}: ErrorType): ErrorActionsReturnType => ({
   type: 'SET_ERROR',
   title,
-  error,
+  message,
 });
 
-export const clearError = (): AuthActionsType => ({
+export const clearError = (): ErrorActionsReturnType => ({
   type: 'CLEAR_ERROR',
 });

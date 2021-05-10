@@ -28,3 +28,14 @@ export type MoviesActionParamsType = {
 export type SEARCH_TYPE = {
   text: string;
 };
+
+export type ErrorType = {
+  message: string;
+  title: string;
+};
+
+export type ErrorActionsReturnType = {
+  type: 'SET_ERROR' | 'CLEAR_ERROR';
+  message?: string;
+  title?: string;
+};
