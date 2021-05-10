@@ -1,0 +1,44 @@
+.header {
+  background-color: white;
+  padding: 1% 0;
+  border-bottom: 1px solid $border-color;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &--left {
+    display: flex;
+    align-items: center;
+
+    &__item {
+      &-title {
+        float: right;
+        margin-left: 20px;
+        color: $purple-color-1;
+
+        &:hover {
+          color: $purple-color-2;
+          text-decoration: none;
+        }
+      }
+
+      &-img {
+        width: 48px;
+        transition: all $transitions-timeout;
+
+        &:hover {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+
+  &--right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
