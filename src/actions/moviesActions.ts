@@ -1,30 +1,43 @@
 import axios from 'axios';
 import fireDB from '../firebase/firebase';
 import { GET_MOVIE_BY_TITLE, SEARCH_MOVIE_BY_TEXT } from '../consts/config';
-import { MOVIE_ID, MOVIES_ACTION, SEARCH_TYPE } from '../consts/typesConfig';
+import {
+  MoviesActionParamsType,
+  MoviesActionReturnType,
+  SEARCH_TYPE,
+} from '../consts/actionTypes';
 
-const createMovie = ({ movie }: MOVIE_ID): MOVIES_ACTION => ({
+const createMovie = ({
+  movie,
+}: MoviesActionParamsType): MoviesActionReturnType => ({
   type: 'CREATE_MOVIE',
   movie,
 });
 
-export const updateMovie = ({ id, movie }: MOVIE_ID): MOVIES_ACTION => ({
+export const updateMovie = ({
+  id,
+  movie,
+}: MoviesActionParamsType): MoviesActionReturnType => ({
   type: 'UPDATE_MOVIE',
   movie,
   id,
 });
 
-const deleteMovie = ({ id }: MOVIE_ID): MOVIES_ACTION => ({
+const deleteMovie = ({
+  id,
+}: MoviesActionParamsType): MoviesActionReturnType => ({
   type: 'DELETE_MOVIE',
   id,
 });
 
-const getMovies = ({ movies }: MOVIE_ID): MOVIES_ACTION => ({
+const getMovies = ({
+  movies,
+}: MoviesActionParamsType): MoviesActionReturnType => ({
   type: 'GET_MOVIES',
   movies,
 });
 
-export const startCreateMovie = ({ movie }: MOVIE_ID) => async (
+export const startCreateMovie = ({ movie }: MoviesActionParamsType) => async (
   dispatch: Function,
   getState: Function
 ): Promise<void> => {
@@ -67,7 +80,10 @@ export const startGetAllMovies = () => async (
   }
 };
 
-export const startUpdateMovie = ({ id, ...movie }: MOVIE_ID) => async (
+export const startUpdateMovie = ({
+  id,
+  ...movie
+}: MoviesActionParamsType) => async (
   dispatch: Function,
   getState: Function
 ) => {
@@ -81,7 +97,7 @@ export const startUpdateMovie = ({ id, ...movie }: MOVIE_ID) => async (
   }
 };
 
-export const startDeleteMovie = ({ id }: MOVIE_ID) => async (
+export const startDeleteMovie = ({ id }: MoviesActionParamsType) => async (
   dispatch: Function,
   getState: Function
 ) => {

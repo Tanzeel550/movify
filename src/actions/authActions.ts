@@ -3,7 +3,7 @@ import {
   AuthActionsType,
   EmailPassType,
   AuthUserType,
-} from '../consts/typesConfig';
+} from '../consts/actionTypes';
 
 export const login = ({ user }: AuthUserType): AuthActionsType => ({
   type: 'LOGIN',

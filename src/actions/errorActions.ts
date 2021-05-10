@@ -1,5 +1,5 @@
-import { ERROR_TYPE } from '../consts/typesConfig';
-import { AuthActionsType } from '../consts/typesConfig';
+import { ERROR_TYPE } from '../consts/actionTypes';
+import { AuthActionsType } from '../consts/actionTypes';
 
 export const setError = ({ error, title }: ERROR_TYPE): AuthActionsType => ({
   type: 'SET_ERROR',
