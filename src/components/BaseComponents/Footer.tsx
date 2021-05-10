@@ -11,7 +11,7 @@ const skills1 = [
 
 const skills2 = ['Company', 'Team', 'Careers'];
 
-const SkillsComponent = ({ skills }) => (
+const SkillsComponent = ({ skills }: { skills: string[] }) => (
   <ul>
     {skills.map((skill, i) => (
       <li key={i}>
@@ -27,7 +27,7 @@ const SkillsComponent = ({ skills }) => (
   </ul>
 );
 
-const Footer = () => (
+const Footer: React.FC = () => (
   <div className="footer-dark">
     <footer>
       <div className="container">

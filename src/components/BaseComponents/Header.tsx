@@ -1,12 +1,19 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import Img from './icon.png';
 import { startLogout } from '../../actions/authActions';
 import { connect } from 'react-redux';
 import VerifyEmailBtn from '../Utils/VerifyEmailBtn';
 
-const Header = ({ isAuthenticated, emailVerified }) => (
+type Props = {
+  isAuthenticated: boolean;
+  emailVerified: boolean;
+};
+
+const Img =
+  'https://drive.google.com/file/d/1D-SBsPY5UCyPl-fSo7NHa4c8szsZI3Ig/view?usp=sharing';
+
+const Header = ({ isAuthenticated, emailVerified }: Props) => (
   <header className="header">
     <div className="container header__container">
       <div className="header--left">
@@ -46,9 +53,18 @@ const Header = ({ isAuthenticated, emailVerified }) => (
   </header>
 );
 
-const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated,
-  emailVerified: state.auth.user.emailVerified,
+type stateType = {
+  auth: {
+    isAuthenticated: boolean;
+    user: {
+      emailVerified: boolean;
+    };
+  };
+};
+
+const mapStateToProps = ({ auth }: stateType) => ({
+  isAuthenticated: auth.isAuthenticated,
+  emailVerified: auth.user.emailVerified,
 });
 
 export default connect(mapStateToProps)(Header);
