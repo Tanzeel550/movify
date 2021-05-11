@@ -1,9 +1,13 @@
+import { AuthActionsType } from '../consts/actionTypes';
+
 const defaultAuthReducer = {
   isAuthenticated: false,
   user: {},
 };
 
-const authReducer = (state = defaultAuthReducer, action) => {
+type actionType = AuthActionsType;
+
+const authReducer = (state = defaultAuthReducer, action: actionType) => {
   switch (action.type) {
     case 'LOGIN':
       return {

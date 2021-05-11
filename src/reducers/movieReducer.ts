@@ -1,6 +1,13 @@
+import { FireDBMovieItem, MoviesActionReturnType } from '../consts/actionTypes';
+
 const defaultState: any = [];
 
-const movieReducer = (state = defaultState, action: object) => {
+type actionType = MoviesActionReturnType;
+
+const movieReducer = (
+  state: FireDBMovieItem[] = defaultState,
+  action: actionType
+) => {
   switch (action.type) {
     case 'CREATE_MOVIE':
       return [...state, action.movie];
@@ -10,7 +17,7 @@ const movieReducer = (state = defaultState, action: object) => {
       return state.map(movie =>
         movie.id === action.id
           ? {
-              ...action.data,
+              ...action.movie,
               id: action.id,
             }
           : movie

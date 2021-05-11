@@ -3,8 +3,8 @@ import Modal from 'react-modal';
 
 type Props = {
   message: string;
-  clearMessage: (params: any) => {};
   title: string;
+  clearMessage: (params: any) => {};
 };
 
 const MessageModal: React.FC<Props> = ({
