@@ -1,32 +1,27 @@
-import { FireDBMovieItem, MoviesActionReturnType } from '../consts/actionTypes';
+import { FireDBMovieItem } from '../consts/actionTypes';
+import { createSlice } from '@reduxjs/toolkit';
+import {
+  createMovieAction,
+  deleteMovieAction,
+  setMoviesAction,
+  updateMovieAction,
+} from '../actions/moviesActions';
 
-const defaultState: any = [];
+const MovieReducer = createSlice({
+  name: 'Movie',
+  initialState: [] as FireDBMovieItem[],
+  reducers: {
+    createMovie: createMovieAction,
+    setMovies: setMoviesAction,
+    updateMovie: updateMovieAction,
+    deleteMovie: deleteMovieAction,
+  },
+});
 
-type actionType = MoviesActionReturnType;
-
-const movieReducer = (
-  state: FireDBMovieItem[] = defaultState,
-  action: actionType
-) => {
-  switch (action.type) {
-    case 'CREATE_MOVIE':
-      return [...state, action.movie];
-    case 'GET_MOVIES':
-      return action.movies;
-    case 'UPDATE_MOVIE':
-      return state.map(movie =>
-        movie.id === action.id
-          ? {
-              ...action.movie,
-              id: action.id,
-            }
-          : movie
-      );
-    case 'DELETE_MOVIE':
-      return state.filter(movie => movie.id !== action.id);
-    default:
-      return state;
-  }
-};
-
-export default movieReducer;
+export const {
+  createMovie,
+  setMovies,
+  updateMovie,
+  deleteMovie,
+} = MovieReducer.actions;
+export default MovieReducer.reducer;

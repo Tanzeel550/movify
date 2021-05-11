@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { startLogout } from '../../actions/authActions';
 import { connect } from 'react-redux';
 import VerifyEmailBtn from '../Utils/VerifyEmailBtn';
+// @ts-ignore
 import * as logo from './icon.jpg';
 
 type Props = {

@@ -29,7 +29,7 @@ export type SEARCH_TYPE = {
   text: string;
 };
 
-export type ErrorType = {
+export type ErrorState = {
   message: string;
   title: string;
 };

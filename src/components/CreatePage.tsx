@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect, ConnectedProps } from 'react-redux';
-import { startCreateMovie } from '../actions/moviesActions';
+import { startCreateMovie } from '../actions/moviesAsyncActions';
 import MovieForm from './FormComponent/MovieForm';
 import VerifyEmailBtn from './Utils/VerifyEmailBtn';
 

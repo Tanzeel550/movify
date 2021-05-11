@@ -5,13 +5,11 @@ import './styles/app.scss';
 import AppRouter, { browserHistory } from './router/AppRouter';
 import configStore from './store/configStore';
 import { firebase } from './firebase/firebase';
-import { startGetAllMovies } from './actions/moviesActions';
+import { startGetAllMovies } from './actions/moviesAsyncActions';
 import { login, logout, startLogout } from './actions/authActions';
 import LoadingDots from './components/Utils/LoadingDots';
 import { setError } from './reducers/errorReducer';
-import * as logo from './components/BaseComponents/icon.jpg';
-const Img = logo;
-console.log(Img.default);
+
 window.addEventListener('offline', () =>
   configStore.dispatch(
     setError({

@@ -1,30 +1,13 @@
-import { CaseReducer, createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-type errorState = {
-  title: string;
-  message: string;
-};
-
-const setErrorAction: CaseReducer<errorState, PayloadAction<errorState>> = (
-  state,
-  action
-) => {
-  return { title: action.payload.title, message: action.payload.message };
-};
-
-const clearErrorAction: CaseReducer<errorState, PayloadAction<errorState>> = (
-  state,
-  action
-) => {
-  return { title: '', message: '' };
-};
+import { createSlice } from '@reduxjs/toolkit';
+import { ErrorState } from '../consts/actionTypes';
+import { clearErrorAction, setErrorAction } from '../actions/errorActions';
 
 const ErrorReducerSlice = createSlice({
   name: 'Error',
   initialState: {
     title: '',
     message: '',
-  } as errorState,
+  } as ErrorState,
   reducers: {
     setError: setErrorAction,
     clearError: clearErrorAction,

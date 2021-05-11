@@ -3,7 +3,7 @@ import React from 'react';
 import {
   getMovieByTitle,
   searchMovieByText,
-} from '../../actions/moviesActions';
+} from '../../actions/moviesAsyncActions';
 import WatchedComponent from './WatchedComponents';
 import SearchComponent from './SearchComponent';
 import PromiseLoading from '../Utils/PromiseLoading';

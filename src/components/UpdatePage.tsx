@@ -1,7 +1,10 @@
 import React from 'react';
 import MovieForm from './FormComponent/MovieForm';
 import { connect, ConnectedProps } from 'react-redux';
-import { startDeleteMovie, startUpdateMovie } from '../actions/moviesActions';
+import {
+  startDeleteMovie,
+  startUpdateMovie,
+} from '../actions/moviesAsyncActions';
 import { Redirect } from 'react-router';
 import { FireDBMovieItem } from '../consts/actionTypes';
 
