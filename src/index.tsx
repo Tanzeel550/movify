@@ -8,8 +8,10 @@ import { firebase } from './firebase/firebase';
 import { startGetAllMovies } from './actions/moviesActions';
 import { login, logout, startLogout } from './actions/authActions';
 import LoadingDots from './components/Utils/LoadingDots';
-import { setError } from './actions/errorActions';
-
+import { setError } from './reducers/errorReducer';
+import * as logo from './components/BaseComponents/icon.jpg';
+const Img = logo;
+console.log(Img.default);
 window.addEventListener('offline', () =>
   configStore.dispatch(
     setError({
@@ -23,9 +25,11 @@ window.addEventListener('offline', () =>
 ReactDOM.render(<LoadingDots />, document.getElementById('root'));
 
 const jsx = (
-  <Provider store={configStore}>
-    <AppRouter />
-  </Provider>
+  <React.StrictMode>
+    <Provider store={configStore}>
+      <AppRouter />
+    </Provider>
+  </React.StrictMode>
 );
 
 let hasRendered = false;

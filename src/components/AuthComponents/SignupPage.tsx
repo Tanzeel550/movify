@@ -3,19 +3,12 @@ import validator from 'validator';
 import { NavLink } from 'react-router-dom';
 import GoogleFB from './GoogleFB';
 import { startSignUpWithEmailPass } from '../../actions/authActions';
-import { connect } from 'react-redux';
-import { setError } from '../../actions/errorActions';
-import { ErrorActionsReturnType } from '../../consts/actionTypes';
+import { connect, ConnectedProps } from 'react-redux';
+import { setError } from '../../reducers/errorReducer';
 
-type Props = {
-  setError: ({
-    message,
-    title,
-  }: {
-    message: string;
-    title: string;
-  }) => ErrorActionsReturnType;
-};
+const connector = connect(null, {setError})
+
+type Props = ConnectedProps<typeof connector>
 
 const SingUpPage: React.FC<Props> = ({ setError }: Props) => {
   const [email, setEmail] = useState('');
@@ -135,4 +128,4 @@ const SingUpPage: React.FC<Props> = ({ setError }: Props) => {
   );
 };
 
-export default connect(null, { setError })(SingUpPage);
+export default connector(SingUpPage);

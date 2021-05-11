@@ -10,13 +10,30 @@ import PublicRouter from './PublicRouter';
 import LoginPage from '../components/AuthComponents/LoginPage';
 import SingUpPage from '../components/AuthComponents/SignupPage';
 import MessageModal from '../components/Utils/MessageModal';
+// @ts-ignore
 import { createBrowserHistory } from 'history';
-import { connect } from 'react-redux';
-import { clearError } from '../actions/errorActions';
+import { connect, ConnectedProps } from 'react-redux';
+import { clearError } from '../reducers/errorReducer';
 
+type StateType = {
+  error: {
+    message: string;
+    title: string;
+  };
+};
+
+const mapStateToProps = ({ error: { message, title } }: StateType) => ({
+  message,
+  title,
+});
+
+const connector = connect(mapStateToProps, { clearError });
+type Props = ConnectedProps<typeof connector>;
+
+// @ts-ignore
 export const browserHistory = new createBrowserHistory();
 
-const AppRouter = ({ clearError, error, text }) => (
+const AppRouter = ({ clearError, message, title }: Props) => (
   <Router history={browserHistory}>
     <Header />
     <Switch>
@@ -40,10 +57,8 @@ const AppRouter = ({ clearError, error, text }) => (
       </Route>
     </Switch>
     <Footer />
-    <MessageModal message={error} title={text} clearMessage={clearError} />
+    <MessageModal message={message} title={title} clearMessage={clearError} />
   </Router>
 );
 
-const mapStateToProps = ({ error: { error, text } }) => ({ error, text });
-
-export default connect(mapStateToProps, { clearError })(AppRouter);
+export default connector(AppRouter);

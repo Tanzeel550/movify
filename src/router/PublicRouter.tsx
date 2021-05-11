@@ -1,12 +1,35 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect, ConnectedProps } from 'react-redux';
 import { Redirect, Route } from 'react-router';
 
-const PublicRouter = ({ isAuthenticated, ...rest }) =>
-  isAuthenticated ? <Redirect to="/" /> : <Route {...rest} />;
+type StateTypes = {
+  auth: {
+    isAuthenticated: boolean;
+  };
+};
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: StateTypes) => ({
   isAuthenticated: state.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps)(PublicRouter);
+const connector = connect(mapStateToProps);
+
+type Props = ConnectedProps<typeof connector> & {
+  component: any;
+  path: string;
+  exact: boolean;
+};
+
+const PublicRouter: React.FC<Props> = ({
+  isAuthenticated,
+  path,
+  exact,
+  component,
+}: Props) =>
+  isAuthenticated ? (
+    <Redirect to="/" />
+  ) : (
+    <Route path={path} exact={exact} component={component} />
+  );
+
+export default connector(PublicRouter);

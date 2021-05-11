@@ -1,7 +1,7 @@
 import React from 'react';
 import { sendEmailVerification } from '../../actions/authActions';
-import { setError } from '../../actions/errorActions';
 import { connect, ConnectedProps } from 'react-redux';
+import { setError } from '../../reducers/errorReducer';
 
 const connector = connect(null, { setError });
 

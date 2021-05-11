@@ -1,8 +1,8 @@
 import { firebase, googleAuthProvider } from '../firebase/firebase';
 import {
   AuthActionsType,
-  EmailPassType,
   AuthUserType,
+  EmailPassType,
 } from '../consts/actionTypes';
 
 export const login = ({ user }: AuthUserType): AuthActionsType => ({

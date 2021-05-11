@@ -14,9 +14,12 @@
     align-items: center;
 
     &__item {
+      display: flex;
+      width: 150px;
+      justify-content: space-between;
+      align-items: center;
+
       &-title {
-        float: right;
-        margin-left: 20px;
         color: $purple-color-1;
 
         &:hover {

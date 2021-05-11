@@ -1,17 +1,16 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-
 import { startLogout } from '../../actions/authActions';
 import { connect } from 'react-redux';
 import VerifyEmailBtn from '../Utils/VerifyEmailBtn';
+import * as logo from './icon.jpg';
 
 type Props = {
   isAuthenticated: boolean;
   emailVerified: boolean;
 };
 
-const Img =
-  'https://drive.google.com/file/d/1D-SBsPY5UCyPl-fSo7NHa4c8szsZI3Ig/view?usp=sharing';
+const Img = logo.default;
 
 const Header = ({ isAuthenticated, emailVerified }: Props) => (
   <header className="header">

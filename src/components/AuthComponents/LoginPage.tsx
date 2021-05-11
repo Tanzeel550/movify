@@ -4,19 +4,11 @@ import validator from 'validator';
 
 import GoogleFB from './GoogleFB';
 import { startLoginWithEmailPass } from '../../actions/authActions';
-import { setError } from '../../actions/errorActions';
-import { connect } from 'react-redux';
-import { ErrorActionsReturnType } from '../../consts/actionTypes';
+import { connect, ConnectedProps } from 'react-redux';
+import { setError } from '../../reducers/errorReducer' ;
 
-type Props = {
-  setError: ({
-    message,
-    title,
-  }: {
-    message: string;
-    title: string;
-  }) => ErrorActionsReturnType;
-};
+const connector = connect(null, { setError });
+type Props = ConnectedProps<typeof connector>;
 
 const LoginPage: React.FC<Props> = ({ setError }: Props) => {
   const [email, setEmail] = useState('');
@@ -117,4 +109,4 @@ const LoginPage: React.FC<Props> = ({ setError }: Props) => {
   );
 };
 
-export default connect(null, { setError })(LoginPage);
+export default connector(LoginPage);
