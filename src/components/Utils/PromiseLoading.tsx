@@ -6,7 +6,7 @@ type Props = {
   area: string;
 };
 
-const PromiseLoading = ({ area }: Props) => {
+const PromiseLoading: React.FC<Props> = ({ area }: Props) => {
   const { promiseInProgress } = usePromiseTracker({ area });
   if (promiseInProgress) return <LoadingDots />;
   return <></>;

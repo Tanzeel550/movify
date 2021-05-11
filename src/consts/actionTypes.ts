@@ -14,15 +14,15 @@ export type AuthUserType = {
 
 export type MoviesActionReturnType = {
   type: 'CREATE_MOVIE' | 'GET_MOVIES' | 'UPDATE_MOVIE' | 'DELETE_MOVIE';
-  movie?: object;
-  movies?: object;
+  movie?: FireDBMovieItem;
+  movies?: FireDBMovieItem[];
   id?: string;
 };
 
 export type MoviesActionParamsType = {
   id?: string;
-  movie?: object;
-  movies?: object;
+  movie?: FireDBMovieItem;
+  movies?: FireDBMovieItem[];
 };
 
 export type SEARCH_TYPE = {
@@ -81,4 +81,14 @@ export type APIMovieResultByTitle = {
   Production?: string;
   Website?: string;
   Response?: string;
+};
+
+export type FireDBMovieItem = {
+  id?: string;
+  name: string;
+  watched: boolean;
+  dateWatched: any;
+  whatYouLearnt: string;
+  Poster: string;
+  createdAt: number;
 };

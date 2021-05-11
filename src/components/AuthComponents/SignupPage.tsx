@@ -5,9 +5,16 @@ import GoogleFB from './GoogleFB';
 import { startSignUpWithEmailPass } from '../../actions/authActions';
 import { connect } from 'react-redux';
 import { setError } from '../../actions/errorActions';
+import { ErrorActionsReturnType } from '../../consts/actionTypes';
 
 type Props = {
-  setError: (...props: any) => {};
+  setError: ({
+    message,
+    title,
+  }: {
+    message: string;
+    title: string;
+  }) => ErrorActionsReturnType;
 };
 
 const SingUpPage: React.FC<Props> = ({ setError }: Props) => {
@@ -43,7 +50,7 @@ const SingUpPage: React.FC<Props> = ({ setError }: Props) => {
 
       await startSignUpWithEmailPass({ email, password });
     } catch (e) {
-      setError({ message: e.message });
+      setError({ message: e.message, title: 'Signup' });
     }
   };
 

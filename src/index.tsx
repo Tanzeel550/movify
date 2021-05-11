@@ -14,7 +14,7 @@ window.addEventListener('offline', () =>
   configStore.dispatch(
     setError({
       title: 'Network',
-      error:
+      message:
         'You have disconnected. Please check your Connection and then Try Again...',
     })
   )
@@ -39,6 +39,7 @@ const renderApp = () => {
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
     configStore.dispatch(login({ user }));
+    // @ts-ignore
     configStore.dispatch(startGetAllMovies()).then(() => {
       renderApp();
     });

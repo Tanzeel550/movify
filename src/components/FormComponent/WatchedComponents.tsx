@@ -9,7 +9,7 @@ type Props = {
   };
 };
 
-const WatchedComponent = ({
+const WatchedComponent: React.FC<Props> = ({
   handleTextChange,
   handleDateChange,
   movie,

@@ -47,8 +47,13 @@ export const startCreateMovie = ({ movie }: MoviesActionParamsType) => async (
     dispatch(
       createMovie({
         movie: {
-          id: ref.key,
-          ...movie,
+          id: ref.key!,
+          createdAt: movie?.createdAt!,
+          dateWatched: movie?.dateWatched!,
+          name: movie?.name!,
+          watched: movie?.watched!,
+          whatYouLearnt: movie?.whatYouLearnt!,
+          Poster: movie?.Poster!,
         },
       })
     );
@@ -82,7 +87,7 @@ export const startGetAllMovies = () => async (
 
 export const startUpdateMovie = ({
   id,
-  ...movie
+  movie,
 }: MoviesActionParamsType) => async (
   dispatch: Function,
   getState: Function

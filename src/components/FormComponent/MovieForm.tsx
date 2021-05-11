@@ -13,21 +13,13 @@ import { PROMISE_AREAS } from '../../consts/config';
 import {
   APIMovieResultByTitle,
   APIMovieResultsBySearch,
+  FireDBMovieItem,
 } from '../../consts/actionTypes';
 
-type Movie = {
-  name: string;
-  watched: boolean;
-  dateWatched: any;
-  whatYouLearnt: string;
-  Poster: string;
-  createdAt: number;
-};
-
 type Props = {
-  movie?: Movie;
+  movie?: FireDBMovieItem;
   actionType: 'update' | 'add';
-  handleFormSubmit: (data: Movie) => {};
+  handleFormSubmit: (data: FireDBMovieItem) => {};
   handleMovieDeletion?: () => {};
 };
 
@@ -126,10 +118,6 @@ class MovieForm extends React.Component<Props, State> {
     if (!searchedMovies) return;
 
     this.setState({ searchedMovies: searchedMovies.slice(0, 5) });
-  }
-
-  handleTextChange(e: React.ChangeEvent<HTMLInputElement>): void {
-    this.setState({ whatYouLearnt: e.target.value });
   }
 
   handleDateChange(e: React.ChangeEvent<HTMLInputElement>): void {

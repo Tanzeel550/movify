@@ -1,13 +1,17 @@
 import React from 'react';
 import Modal from 'react-modal';
 
-type props = {
+type Props = {
   message: string;
   clearMessage: (params: any) => {};
   title: string;
 };
 
-const MessageModal = ({ message, clearMessage, title }: props) => (
+const MessageModal: React.FC<Props> = ({
+  message,
+  clearMessage,
+  title,
+}: Props) => (
   <Modal
     isOpen={!!message}
     onRequestClose={clearMessage}

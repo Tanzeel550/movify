@@ -11,7 +11,11 @@ const skills1 = [
 
 const skills2 = ['Company', 'Team', 'Careers'];
 
-const SkillsComponent = ({ skills }: { skills: string[] }) => (
+type Props = {
+  skills: string[];
+};
+
+const SkillsComponent: React.FC<Props> = ({ skills }: Props) => (
   <ul>
     {skills.map((skill, i) => (
       <li key={i}>

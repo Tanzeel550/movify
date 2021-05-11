@@ -6,7 +6,10 @@ type Props = {
   handleSearchItemClick: (e: string) => {};
 };
 
-const SearchComponent = ({ movies, handleSearchItemClick }: Props) => (
+const SearchComponent: React.FC<Props> = ({
+  movies,
+  handleSearchItemClick,
+}: Props) => (
   <ul className="row search--container">
     {movies.map((movie, index) => (
       <li

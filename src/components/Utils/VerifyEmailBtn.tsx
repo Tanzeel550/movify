@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { sendEmailVerification } from '../../actions/authActions';
-import MessageModal from './MessageModal';
+import { setError } from '../../actions/errorActions';
+import { connect, ConnectedProps } from 'react-redux';
 
-const VerifyEmailBtn = () => {
-  const [message, setMessage] = useState(null);
+const connector = connect(null, { setError });
+
+type Props = ConnectedProps<typeof connector>;
+
+const VerifyEmailBtn: React.FC<Props> = ({ setError }: Props) => {
   return (
     <div>
       <button
@@ -13,19 +17,14 @@ const VerifyEmailBtn = () => {
             await sendEmailVerification();
             throw new Error('A Verification Link has been sent to your email');
           } catch (e) {
-            setMessage(e.message);
+            setError({ message: e.message, title: 'Verification Email' });
           }
         }}
       >
         Verify Email
       </button>
-      <MessageModal
-        clearMessage={() => setMessage(null)}
-        message={message}
-        text="Verification Email"
-      />
     </div>
   );
 };
 
-export default VerifyEmailBtn;
+export default connector(VerifyEmailBtn);

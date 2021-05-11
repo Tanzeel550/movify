@@ -1,21 +1,47 @@
 import React from 'react';
 import MovieForm from './FormComponent/MovieForm';
-import { connect } from 'react-redux';
+import { connect, ConnectedProps } from 'react-redux';
 import { startDeleteMovie, startUpdateMovie } from '../actions/moviesActions';
 import { Redirect } from 'react-router';
+import { FireDBMovieItem } from '../consts/actionTypes';
 
-const UpdatePage = props =>
+type StateTypes = {
+  movies: FireDBMovieItem[];
+  auth: { user: { emailVerified: boolean } };
+};
+
+type PropsType = {
+  history: {
+    push: (link: string) => {};
+  };
+  match: { params: { id: string } };
+};
+
+const mapStateToProps = (state: StateTypes, props: PropsType) => ({
+  movie: state.movies.find(movie => movie.id === props.match.params.id),
+  emailVerified: state.auth.user.emailVerified,
+  history: props.history,
+});
+
+const connector = connect(mapStateToProps, {
+  startUpdateMovie,
+  startDeleteMovie,
+});
+
+type Props = ConnectedProps<typeof connector>;
+
+const UpdatePage = (props: Props) =>
   props.emailVerified ? (
     props.movie ? (
       <MovieForm
         actionType="update"
         movie={props.movie}
         handleFormSubmit={async data => {
-          await props.startUpdateMovie(data);
+          await props.startUpdateMovie({ id: props.movie!.id, movie: data });
           props.history.push('/');
         }}
         handleMovieDeletion={async () => {
-          await props.startDeleteMovie(props.movie.id);
+          await props.startDeleteMovie({ id: props.movie!.id });
           props.history.push('/');
         }}
       />
@@ -39,14 +65,4 @@ const UpdatePage = props =>
     </div>
   );
 
-const mapStateToProps = (state, props) => ({
-  movie: state.movies.find(movie => movie.id === props.match.params.id),
-  emailVerified: state.auth.user.emailVerified,
-});
-
-const mapDispatchToProps = dispatch => ({
-  startUpdateMovie: data => dispatch(startUpdateMovie(data)),
-  startDeleteMovie: id => dispatch(startDeleteMovie(id)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(UpdatePage);
+export default connector(UpdatePage);
