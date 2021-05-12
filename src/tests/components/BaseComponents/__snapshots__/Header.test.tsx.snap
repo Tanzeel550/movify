@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render header correctly when user is logged in and email is verified 1`] = `ShallowWrapper {}`;
+
+exports[`should render header correctly when user is logged in but email is not verified 1`] = `ShallowWrapper {}`;
+
+exports[`should render header correctly when user is logged out 1`] = `ShallowWrapper {}`;

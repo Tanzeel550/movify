@@ -1,5 +1,5 @@
 import React from 'react';
-import { APIMovieResultByTitle } from '../../consts/actionTypes';
+import { APIMovieResultByTitle } from '../../types/APITypes';
 
 type Props = {
   movie: APIMovieResultByTitle;

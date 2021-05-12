@@ -13,7 +13,7 @@ type Props = {
 
 const Img = logo.default;
 
-const Header = ({ isAuthenticated, emailVerified }: Props) => (
+export const Header = ({ isAuthenticated, emailVerified }: Props) => (
   <header className="header">
     <div className="container header__container">
       <div className="header--left">

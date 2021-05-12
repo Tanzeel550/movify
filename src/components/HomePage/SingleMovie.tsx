@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import React from 'react';
-import { FireDBMovieItem } from '../../consts/actionTypes';
+import { FireDBMovieItem } from '../../types/APITypes';
 
 type Props = {
   movie: FireDBMovieItem;

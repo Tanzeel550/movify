@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render SkillsComponent correctly 1`] = `ShallowWrapper {}`;
+
+exports[`should render footer correctly 1`] = `ShallowWrapper {}`;

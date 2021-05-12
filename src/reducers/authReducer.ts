@@ -1,24 +1,37 @@
-import { AuthActionsType } from '../consts/actionTypes';
+import { CaseReducer, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { AuthDefaultType, AuthUserType } from '../types/AuthTypes';
 
-const defaultAuthReducer = {
-  isAuthenticated: false,
-  user: {},
+const loginAction: CaseReducer<AuthDefaultType, PayloadAction<AuthUserType>> = (
+  state,
+  action
+) => {
+  return {
+    isAuthenticated: true,
+    user: action.payload.user,
+  };
 };
 
-type actionType = AuthActionsType;
-
-const authReducer = (state = defaultAuthReducer, action: actionType) => {
-  switch (action.type) {
-    case 'LOGIN':
-      return {
-        isAuthenticated: true,
-        user: action.user,
-      };
-    case 'LOGOUT':
-      return defaultAuthReducer;
-    default:
-      return state;
-  }
+const logoutAction: CaseReducer<AuthDefaultType, PayloadAction> = (
+  state,
+  action
+) => {
+  return {
+    isAuthenticated: true,
+    user: {},
+  };
 };
 
-export default authReducer;
+const AuthReducer = createSlice({
+  name: 'Auth',
+  initialState: {
+    isAuthenticated: false,
+    user: {},
+  } as AuthDefaultType,
+  reducers: {
+    login: loginAction,
+    logout: logoutAction,
+  },
+});
+
+export const { login, logout } = AuthReducer.actions;
+export default AuthReducer.reducer;

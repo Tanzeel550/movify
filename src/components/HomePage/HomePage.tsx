@@ -3,7 +3,7 @@ import { connect, ConnectedProps } from 'react-redux';
 import AllMoviesList from './AllMoviesList';
 import { PROMISE_AREAS } from '../../consts/config';
 import PromiseLoading from '../Utils/PromiseLoading';
-import { FireDBMovieItem } from '../../consts/actionTypes';
+import { FireDBMovieItem } from '../../types/APITypes';
 
 const getFirstName = (name: string) => {
   const firstName = name.split(

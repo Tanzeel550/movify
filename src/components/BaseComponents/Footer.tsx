@@ -1,21 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-
-const skills1 = [
-  'Web Design',
-  'JavaScript Developer',
-  'React JS',
-  'Rest API',
-  'NodeJS',
-];
-
-const skills2 = ['Company', 'Team', 'Careers'];
+import { skills1, skills2 } from '../../consts/fixtures';
 
 type Props = {
   skills: string[];
 };
 
-const SkillsComponent: React.FC<Props> = ({ skills }: Props) => (
+export const SkillsComponent: React.FC<Props> = ({ skills }: Props) => (
   <ul>
     {skills.map((skill, i) => (
       <li key={i}>

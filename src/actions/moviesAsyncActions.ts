@@ -1,22 +1,23 @@
 import axios from 'axios';
 import fireDB from '../firebase/firebase';
 import { GET_MOVIE_BY_TITLE, SEARCH_MOVIE_BY_TEXT } from '../consts/config';
-import { MoviesActionParamsType, SEARCH_TYPE } from '../consts/actionTypes';
 import {
   createMovie,
   deleteMovie,
   setMovies,
   updateMovie,
 } from '../reducers/movieReducer';
+import { MoviesActionParamsType } from '../types/MoviesTypes';
+import { SEARCH_TYPE } from '../types/APITypes';
 
-export const startCreateMovie = ({ movie }: MoviesActionParamsType) => async (
+export const startCreateMovie = ({ movie }: MoviesActionParamsType, path: string = 'movies') => async (
   dispatch: Function,
   getState: Function
 ): Promise<void> => {
   try {
     const { uid } = getState().auth.user;
-    const ref = await fireDB.ref(`users/${uid}/movies`).push(movie);
-    dispatch(
+    const ref = await fireDB.ref(`${path}/users/${uid}/movies`).push(movie);
+    return dispatch(
       createMovie({
         movie: {
           id: ref.key!,
@@ -35,13 +36,13 @@ export const startCreateMovie = ({ movie }: MoviesActionParamsType) => async (
   }
 };
 
-export const startGetAllMovies = () => async (
+export const startGetAllMovies = (path: string = 'movies') => async (
   dispatch: Function,
   getState: Function
 ): Promise<void> => {
   try {
     const { uid } = getState().auth.user;
-    const snapshot = await fireDB.ref(`users/${uid}/movies`).once('value');
+    const snapshot = await fireDB.ref(`${path}/users/${uid}/movies`).once('value');
     const movies: any[] = [];
     snapshot.forEach(childSnapshot => {
       movies.push({
@@ -60,27 +61,27 @@ export const startGetAllMovies = () => async (
 export const startUpdateMovie = ({
   id,
   movie,
-}: MoviesActionParamsType) => async (
+}: MoviesActionParamsType, path: string = 'movies') => async (
   dispatch: Function,
   getState: Function
 ) => {
-  try {
-    const { uid } = getState().auth.user;
-    await fireDB.ref(`users/${uid}/movies/${id}`).update({ ...movie });
-    dispatch(updateMovie({ id: id!, movie: movie! }));
-  } catch (e) {
-    console.log(e.message);
-    console.error(e);
-  }
-};
+    try {
+      const { uid } = getState().auth.user;
+      await fireDB.ref(`${path}/users/${uid}/movies/${id}`).update({ ...movie });
+      dispatch(updateMovie({ id: id!, movie: movie! }));
+    } catch (e) {
+      console.log(e.message);
+      console.error(e);
+    }
+  };
 
-export const startDeleteMovie = ({ id }: MoviesActionParamsType) => async (
+export const startDeleteMovie = ({ id }: MoviesActionParamsType, path: string = 'movies') => async (
   dispatch: Function,
   getState: Function
 ) => {
   try {
     const { uid } = getState().auth.user;
-    await fireDB.ref(`users/${uid}/movies/${id}`).remove();
+    await fireDB.ref(`${path}/users/${uid}/movies/${id}`).remove();
     dispatch(deleteMovie({ id: id! }));
   } catch (e) {
     console.log(e.message);

@@ -6,11 +6,14 @@ import { startSignUpWithEmailPass } from '../../actions/authActions';
 import { connect, ConnectedProps } from 'react-redux';
 import { setError } from '../../reducers/errorReducer';
 
-const connector = connect(null, {setError})
+const connector = connect(null, { setError, startSignUpWithEmailPass });
 
-type Props = ConnectedProps<typeof connector>
+type Props = ConnectedProps<typeof connector>;
 
-const SingUpPage: React.FC<Props> = ({ setError }: Props) => {
+export const SingUpPage: React.FC<Props> = ({
+  setError,
+  startSignUpWithEmailPass,
+}: Props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -43,7 +46,7 @@ const SingUpPage: React.FC<Props> = ({ setError }: Props) => {
 
       await startSignUpWithEmailPass({ email, password });
     } catch (e) {
-      setError({ message: e.message, title: 'Signup' });
+      setError({ message: e.message, title: 'SignUp' });
     }
   };
 

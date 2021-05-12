@@ -1,6 +1,6 @@
 import React from 'react';
-import { FireDBMovieItem } from '../../consts/actionTypes';
 import SingleMovie from './SingleMovie';
+import { FireDBMovieItem } from '../../types/APITypes';
 
 type Props = {
   movies: FireDBMovieItem[];

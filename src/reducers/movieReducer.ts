@@ -1,11 +1,46 @@
-import { FireDBMovieItem } from '../consts/actionTypes';
-import { createSlice } from '@reduxjs/toolkit';
+import { CaseReducer, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { FireDBMovieItem } from '../types/APITypes';
 import {
-  createMovieAction,
-  deleteMovieAction,
-  setMoviesAction,
-  updateMovieAction,
-} from '../actions/moviesActions';
+  CreateMovieType,
+  DeleteMovieType,
+  SetMovieType,
+  UpdateMovieType,
+} from '../types/MoviesTypes';
+
+const createMovieAction: CaseReducer<
+  FireDBMovieItem[],
+  PayloadAction<CreateMovieType>
+> = (state, action) => {
+  return [...state, action.payload.movie];
+};
+
+const setMoviesAction: CaseReducer<
+  FireDBMovieItem[],
+  PayloadAction<SetMovieType>
+> = (state, action) => {
+  return action.payload.movies;
+};
+
+const updateMovieAction: CaseReducer<
+  FireDBMovieItem[],
+  PayloadAction<UpdateMovieType>
+> = (state, action) => {
+  return state.map(movie =>
+    movie.id === action.payload.id
+      ? {
+          ...action.payload.movie,
+          id: action.payload.id,
+        }
+      : movie
+  );
+};
+
+const deleteMovieAction: CaseReducer<
+  FireDBMovieItem[],
+  PayloadAction<DeleteMovieType>
+> = (state, action) => {
+  return state.filter(movie => movie.id !== action.payload.id);
+};
 
 const MovieReducer = createSlice({
   name: 'Movie',

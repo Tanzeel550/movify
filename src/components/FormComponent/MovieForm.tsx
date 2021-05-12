@@ -10,11 +10,7 @@ import PromiseLoading from '../Utils/PromiseLoading';
 import MovieDetails from './MovieDetails';
 import { trackPromise } from 'react-promise-tracker';
 import { PROMISE_AREAS } from '../../consts/config';
-import {
-  APIMovieResultByTitle,
-  APIMovieResultsBySearch,
-  FireDBMovieItem,
-} from '../../consts/actionTypes';
+import { FireDBMovieItem } from '../../types/APITypes';
 
 type Props = {
   movie?: FireDBMovieItem;

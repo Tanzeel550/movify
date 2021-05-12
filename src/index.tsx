@@ -6,7 +6,8 @@ import AppRouter, { browserHistory } from './router/AppRouter';
 import configStore from './store/configStore';
 import { firebase } from './firebase/firebase';
 import { startGetAllMovies } from './actions/moviesAsyncActions';
-import { login, logout, startLogout } from './actions/authActions';
+import { startLogout } from './actions/authActions';
+import { login, logout } from './reducers/authReducer';
 import LoadingDots from './components/Utils/LoadingDots';
 import { setError } from './reducers/errorReducer';
 

@@ -1,43 +1,9 @@
-export type EmailPassType = {
-  email: string;
-  password: string;
-};
-
-export type AuthActionsType = {
-  type: 'LOGIN' | 'LOGOUT';
-  user?: object;
-};
-
-export type AuthUserType = {
-  user: object;
-};
-
-export type MoviesActionReturnType = {
-  type: 'CREATE_MOVIE' | 'GET_MOVIES' | 'UPDATE_MOVIE' | 'DELETE_MOVIE';
-  movie?: FireDBMovieItem;
-  movies?: FireDBMovieItem[];
-  id?: string;
-};
-
-export type MoviesActionParamsType = {
-  id?: string;
-  movie?: FireDBMovieItem;
-  movies?: FireDBMovieItem[];
-};
+// ============================================================
+// ======================== API Types =========================
+// ============================================================
 
 export type SEARCH_TYPE = {
   text: string;
-};
-
-export type ErrorState = {
-  message: string;
-  title: string;
-};
-
-export type ErrorActionsReturnType = {
-  type: 'SET_ERROR' | 'CLEAR_ERROR';
-  message?: string;
-  title?: string;
 };
 
 export type APISingleMovieResultBySearch = {

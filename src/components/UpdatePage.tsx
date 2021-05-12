@@ -6,7 +6,7 @@ import {
   startUpdateMovie,
 } from '../actions/moviesAsyncActions';
 import { Redirect } from 'react-router';
-import { FireDBMovieItem } from '../consts/actionTypes';
+import { FireDBMovieItem } from '../types/APITypes';
 
 type StateTypes = {
   movies: FireDBMovieItem[];
