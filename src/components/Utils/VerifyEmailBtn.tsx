@@ -7,7 +7,7 @@ const connector = connect(null, { setError });
 
 type Props = ConnectedProps<typeof connector>;
 
-const VerifyEmailBtn: React.FC<Props> = ({ setError }: Props) => {
+export const VerifyEmailBtn: React.FC<Props> = ({ setError }: Props) => {
   return (
     <div>
       <button

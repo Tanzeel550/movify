@@ -3,6 +3,7 @@ import { connect, ConnectedProps } from 'react-redux';
 import { startCreateMovie } from '../actions/moviesAsyncActions';
 import MovieForm from './FormComponent/MovieForm';
 import VerifyEmailBtn from './Utils/VerifyEmailBtn';
+import VerifiedComp from './Utils/VerifiedComp';
 
 type StateTypes = {
   auth: { user: { emailVerified: boolean } };
@@ -17,22 +18,21 @@ const mapStateToProps = ({ auth, history }: StateTypes) => ({
 const connector = connect(mapStateToProps, { startCreateMovie });
 type PropsFromRedux = ConnectedProps<typeof connector>;
 
-const CreatePage = (props: PropsFromRedux) => {
-  return props.emailVerified ? (
-    <MovieForm
-      actionType="add"
-      handleFormSubmit={async movie => {
-        await props.startCreateMovie({ movie });
-        props.history.push('/');
-      }}
-    />
-  ) : (
-    <div className="container jumbotron">
-      <h3 className="u-text-colorized">
-        You cannot access this page because your Email is not verified
-      </h3>
-      <VerifyEmailBtn />
-    </div>
+export const CreatePage = ({
+  history,
+  startCreateMovie,
+  emailVerified,
+}: PropsFromRedux) => {
+  return (
+    <VerifiedComp emailVerified={emailVerified}>
+      <MovieForm
+        actionType="add"
+        handleFormSubmit={async movie => {
+          await startCreateMovie({ movie });
+          history.push('/');
+        }}
+      />
+    </VerifiedComp>
   );
 };
 

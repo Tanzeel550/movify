@@ -9,7 +9,7 @@ type Props = {
 const SingleMovie = ({ movie }: Props) => (
   <NavLink className="movie__item" to={`/update/${movie.id}`}>
     <div className="movie__item--poster">
-      <img src={movie.Poster} alt="" />
+      <img src={movie.Poster} alt={movie.name} />
     </div>
 
     <div className="movie__item--text">
@@ -23,7 +23,7 @@ const SingleMovie = ({ movie }: Props) => (
           </p>
         </div>
       ) : (
-        'You really need to watch this movie'
+        <p>You really need to watch this movie</p>
       )}
     </div>
   </NavLink>

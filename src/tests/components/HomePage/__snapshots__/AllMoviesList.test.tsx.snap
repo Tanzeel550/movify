@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AllMoviesList Component should be rendered correctly 1`] = `
+<div
+  className="all__movies"
+>
+  <SingleMovie
+    key="0"
+    movie={
+      Object {
+        "Poster": "https://image.com",
+        "createdAt": "9876543",
+        "dateWatched": "234567890",
+        "id": "1234567",
+        "name": "The Dark Knight",
+        "watched": true,
+        "whatYouLearnt": "The world is as good as we let it to be",
+      }
+    }
+  />
+  <SingleMovie
+    key="1"
+    movie={
+      Object {
+        "Poster": "https://godfather.com",
+        "createdAt": "987654567890",
+        "dateWatched": "98765434567",
+        "id": "4567890",
+        "name": "GodFather",
+        "watched": false,
+        "whatYouLearnt": "You can act like a man what is the matter with you?",
+      }
+    }
+  />
+  <SingleMovie
+    key="2"
+    movie={
+      Object {
+        "Poster": "https://avengers.com",
+        "createdAt": "69864123340404",
+        "dateWatched": "",
+        "id": "9ikjnbvfrty",
+        "name": "Avengers: EndGame",
+        "watched": false,
+        "whatYouLearnt": "Thanos will be defeated",
+      }
+    }
+  />
+</div>
+`;

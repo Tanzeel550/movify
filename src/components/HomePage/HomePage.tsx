@@ -1,16 +1,7 @@
 import React from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 import AllMoviesList from './AllMoviesList';
-import { PROMISE_AREAS } from '../../consts/config';
-import PromiseLoading from '../Utils/PromiseLoading';
 import { FireDBMovieItem } from '../../types/APITypes';
-
-const getFirstName = (name: string) => {
-  const firstName = name.split(
-    /[`1234567890!@#£€$¢¥§%°^&*()-_+={}[]|\/:;"'<>,.?]+/
-  )[0];
-  return firstName[0].toUpperCase() + firstName.substring(1);
-};
 
 type StateTypes = {
   movies: FireDBMovieItem[];
@@ -32,7 +23,14 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 
 type Props = PropsFromRedux;
 
-const HomePage: React.FC<Props> = ({ movies, name }: Props) => {
+export const HomePage: React.FC<Props> = ({ movies, name }: Props) => {
+  const getFirstName = (name: string) => {
+    const firstName = name.split(
+      /[`1234567890!@#£€$¢¥§%°^&*()-_+={}[]|\/:;"'<>,.?]+/
+    )[0];
+    return firstName.charAt(0).toUpperCase() + firstName.substring(1);
+  };
+
   return (
     <div>
       <div className="home__user--info">
@@ -45,7 +43,6 @@ const HomePage: React.FC<Props> = ({ movies, name }: Props) => {
       </div>
 
       <div className="container">
-        <PromiseLoading area={PROMISE_AREAS.GET_ALL_MOVIES} />
         {movies.length > 0 ? (
           <AllMoviesList movies={movies} />
         ) : (

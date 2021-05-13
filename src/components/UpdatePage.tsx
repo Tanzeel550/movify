@@ -7,6 +7,7 @@ import {
 } from '../actions/moviesAsyncActions';
 import { Redirect } from 'react-router';
 import { FireDBMovieItem } from '../types/APITypes';
+import VerifiedComp from './Utils/VerifiedComp';
 
 type StateTypes = {
   movies: FireDBMovieItem[];
@@ -18,6 +19,7 @@ type PropsType = {
     push: (link: string) => {};
   };
   match: { params: { id: string } };
+  movie: FireDBMovieItem;
 };
 
 const mapStateToProps = (state: StateTypes, props: PropsType) => ({
@@ -33,19 +35,25 @@ const connector = connect(mapStateToProps, {
 
 type Props = ConnectedProps<typeof connector>;
 
-const UpdatePage = (props: Props) =>
-  props.emailVerified ? (
-    props.movie ? (
+export const UpdatePage = ({
+  movie,
+  emailVerified,
+  history,
+  startDeleteMovie,
+  startUpdateMovie,
+}: Props) => (
+  <VerifiedComp emailVerified={emailVerified}>
+    {movie ? (
       <MovieForm
         actionType="update"
-        movie={props.movie}
+        movie={movie}
         handleFormSubmit={async data => {
-          await props.startUpdateMovie({ id: props.movie!.id, movie: data });
-          props.history.push('/');
+          await startUpdateMovie({ id: movie!.id, movie: data });
+          history.push('/');
         }}
         handleMovieDeletion={async () => {
-          await props.startDeleteMovie({ id: props.movie!.id });
-          props.history.push('/');
+          await startDeleteMovie({ id: movie!.id });
+          history.push('/');
         }}
       />
     ) : (
@@ -58,14 +66,8 @@ const UpdatePage = (props: Props) =>
           Go Home
         </button>
       </h1>
-    )
-  ) : (
-    <div className="container jumbotron">
-      <h3 className="u-text-colorized">
-        You cannot access this page because your Email is not verified
-      </h3>
-      <button className="btn btn-primary btn-lg mt-3">Verify Email</button>
-    </div>
-  );
+    )}
+  </VerifiedComp>
+);
 
 export default connector(UpdatePage);

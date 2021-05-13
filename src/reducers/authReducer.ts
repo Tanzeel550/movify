@@ -16,7 +16,7 @@ const logoutAction: CaseReducer<AuthDefaultType, PayloadAction> = (
   action
 ) => {
   return {
-    isAuthenticated: true,
+    isAuthenticated: false,
     user: {},
   };
 };

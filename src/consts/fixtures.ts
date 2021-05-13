@@ -3,6 +3,7 @@ import {
   APISingleMovieResultBySearch,
   FireDBMovieItem,
 } from '../types/APITypes';
+import { AuthUserType } from '../types/AuthTypes';
 
 export const movies: FireDBMovieItem[] = [
   {
@@ -23,7 +24,27 @@ export const movies: FireDBMovieItem[] = [
     Poster: 'https://godfather.com',
     createdAt: '987654567890',
   },
+  {
+    id: '9ikjnbvfrty',
+    name: 'Avengers: EndGame',
+    watched: false,
+    dateWatched: '',
+    whatYouLearnt: 'Thanos will be defeated',
+    Poster: 'https://avengers.com',
+    createdAt: '69864123340404',
+  },
 ];
+
+export const myUser: AuthUserType = {
+  user: {
+    name: 'Tanzeel',
+    email: 'tanzeelahmed550@gmail.com',
+    passion: 'Web Dev',
+    os: 'Kali Linux',
+    version: '1.0.0',
+    height: 5.5,
+  },
+};
 
 export const skills1 = [
   'Web Design',

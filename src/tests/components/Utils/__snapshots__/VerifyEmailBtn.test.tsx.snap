@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render VerifyEmailBtn correctly 1`] = `
+<div>
+  <button
+    className="btn u-btn-colorized"
+    onClick={[Function]}
+  >
+    Verify Email
+  </button>
+</div>
+`;

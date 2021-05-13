@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render SingleMovie when movie is not watched 1`] = `
+<NavLink
+  className="movie__item"
+  to="/update/4567890"
+>
+  <div
+    className="movie__item--poster"
+  >
+    <img
+      alt="GodFather"
+      src="https://godfather.com"
+    />
+  </div>
+  <div
+    className="movie__item--text"
+  >
+    <h5
+      className="movie__item--text-text"
+    >
+      GodFather
+    </h5>
+    <p>
+      You really need to watch this movie
+    </p>
+  </div>
+</NavLink>
+`;
+
+exports[`should render SingleMovie with the default props 1`] = `
+<NavLink
+  className="movie__item"
+  to="/update/1234567"
+>
+  <div
+    className="movie__item--poster"
+  >
+    <img
+      alt="The Dark Knight"
+      src="https://image.com"
+    />
+  </div>
+  <div
+    className="movie__item--text"
+  >
+    <h5
+      className="movie__item--text-text"
+    >
+      The Dark Knight
+    </h5>
+    <div>
+      <p>
+        You watched this movie on 
+        234567890
+      </p>
+      <h5>
+        What You Learned from it?
+      </h5>
+      <p
+        className=".u-tex-ellipsis"
+      >
+        The world is as good as we let it to be
+      </p>
+    </div>
+  </div>
+</NavLink>
+`;

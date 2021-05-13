@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should not render the component because the email is not verified 1`] = `
+<div
+  className="container jumbotron"
+>
+  <p>
+    email is $
+  </p>
+  <h3
+    className="u-text-colorized"
+  >
+    You cannot access this page because your Email is not verified
+  </h3>
+  <Connect(VerifyEmailBtn) />
+</div>
+`;
+
+exports[`should render the component because the email is verified 1`] = `
+<Fragment>
+  <Comp />
+</Fragment>
+`;

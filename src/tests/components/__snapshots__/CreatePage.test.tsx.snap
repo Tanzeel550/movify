@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render CreatePage correctly 1`] = `
+<VerifiedComp
+  emailVerified={true}
+>
+  <MovieForm
+    actionType="add"
+    handleFormSubmit={[Function]}
+  />
+</VerifiedComp>
+`;

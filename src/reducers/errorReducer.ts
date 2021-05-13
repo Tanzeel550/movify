@@ -8,10 +8,7 @@ const setErrorAction: CaseReducer<ErrorState, PayloadAction<ErrorState>> = (
   return { title: action.payload.title, message: action.payload.message };
 };
 
-const clearErrorAction: CaseReducer<ErrorState, PayloadAction<ErrorState>> = (
-  state,
-  action
-) => {
+const clearErrorAction: CaseReducer<ErrorState, PayloadAction> = () => {
   return { title: '', message: '' };
 };
 
