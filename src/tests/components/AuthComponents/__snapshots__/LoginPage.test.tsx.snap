@@ -1,3 +1,104 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render GoogleFB component correctly 1`] = `ShallowWrapper {}`;
+exports[`should render GoogleFB component correctly 1`] = `
+<div
+  className="form__container"
+>
+  <div
+    className="form__wrapper"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <span
+        className="form__title text-center"
+      >
+        Login
+      </span>
+      <div
+        className="form__input--wrapper"
+        movie-validate="Username is required"
+      >
+        <span
+          className="form__input--label"
+        >
+          Username
+        </span>
+        <input
+          className="form__input--input"
+          name="username"
+          onChange={[Function]}
+          placeholder="Type your username"
+          required={true}
+          type="email"
+          value=""
+        />
+        <span
+          className="form__input--icon"
+          movie-symbol=""
+        />
+      </div>
+      <div
+        className="form__input--wrapper "
+        movie-validate="Password is required"
+      >
+        <span
+          className="form__input--label"
+        >
+          Password
+        </span>
+        <input
+          className="form__input--input"
+          name="pass"
+          onChange={[Function]}
+          placeholder="Type your password"
+          required={true}
+          type="password"
+          value=""
+        />
+        <span
+          className="form__input--icon"
+          movie-symbol=""
+        />
+      </div>
+      <div
+        className="form__button--container"
+      >
+        <div
+          className="form__button--wrapper"
+        >
+          <div
+            className="form__button--behind"
+          />
+          <button
+            className="form__button--actual"
+          >
+            Login
+          </button>
+        </div>
+      </div>
+      <div
+        className="text-center txt1"
+      >
+        <span>
+           Or Login Using 
+        </span>
+      </div>
+      <GoogleFB />
+      <div
+        className="flex-col-c"
+      >
+        <span>
+          Or Sign Up Using
+        </span>
+        <NavLink
+          className="txt2"
+          to="/signUp"
+        >
+          Sign Up
+        </NavLink>
+      </div>
+    </form>
+  </div>
+</div>
+`;

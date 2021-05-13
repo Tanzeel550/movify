@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render SearchComponent correctly 1`] = `
+<ul
+  className="row search--container"
+>
+  <li
+    className="col-sm-12 row search--item"
+    key="0"
+    movie-movie-name="The Dark Knight"
+    onClick={[Function]}
+  >
+    <img
+      alt="Movie"
+      className="col-sm-3"
+      src="https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg"
+    />
+    <div
+      className="col-sm-9"
+    >
+      The Dark Knight
+    </div>
+  </li>
+  <li
+    className="col-sm-12 row search--item"
+    key="1"
+    movie-movie-name="The Dark Knight Rises"
+    onClick={[Function]}
+  >
+    <img
+      alt="Movie"
+      className="col-sm-3"
+      src="https://m.media-amazon.com/images/M/MV5BMTk4ODQzNDY3Ml5BMl5BanBnXkFtZTcwODA0NTM4Nw@@._V1_SX300.jpg"
+    />
+    <div
+      className="col-sm-9"
+    >
+      The Dark Knight Rises
+    </div>
+  </li>
+  <li
+    className="col-sm-12 row search--item"
+    key="2"
+    movie-movie-name="Batman: The Dark Knight Returns, Part 1"
+    onClick={[Function]}
+  >
+    <img
+      alt="Movie"
+      className="col-sm-3"
+      src="https://m.media-amazon.com/images/M/MV5BMzIxMDkxNDM2M15BMl5BanBnXkFtZTcwMDA5ODY1OQ@@._V1_SX300.jpg"
+    />
+    <div
+      className="col-sm-9"
+    >
+      Batman: The Dark Knight Returns, Part 1
+    </div>
+  </li>
+  <li
+    className="col-sm-12 row search--item"
+    key="3"
+    movie-movie-name="Batman: The Dark Knight Returns, Part 2"
+    onClick={[Function]}
+  >
+    <img
+      alt="Movie"
+      className="col-sm-3"
+      src="https://m.media-amazon.com/images/M/MV5BYTEzMmE0ZDYtYWNmYi00ZWM4LWJjOTUtYTE0ZmQyYWM3ZjA0XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg"
+    />
+    <div
+      className="col-sm-9"
+    >
+      Batman: The Dark Knight Returns, Part 2
+    </div>
+  </li>
+  <li
+    className="col-sm-12 row search--item"
+    key="4"
+    movie-movie-name="Batman: The Dark Knight Returns"
+    onClick={[Function]}
+  >
+    <img
+      alt="Movie"
+      className="col-sm-3"
+      src="https://m.media-amazon.com/images/M/MV5BMjExMGE4NDQtM2MwMS00YzhlLTlkYjgtNmExNzM1ZDBhYzg1XkEyXkFqcGdeQXVyMTY5Nzc4MDY@._V1_SX300.jpg"
+    />
+    <div
+      className="col-sm-9"
+    >
+      Batman: The Dark Knight Returns
+    </div>
+  </li>
+</ul>
+`;

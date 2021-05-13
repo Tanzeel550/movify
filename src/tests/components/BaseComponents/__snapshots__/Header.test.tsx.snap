@@ -1,7 +1,140 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render header correctly when user is logged in and email is verified 1`] = `ShallowWrapper {}`;
+exports[`should render header correctly when user is logged in and email is verified 1`] = `
+<header
+  className="header"
+>
+  <div
+    className="container header__container"
+  >
+    <div
+      className="header--left"
+    >
+      <NavLink
+        className="header--left__item"
+        to="/"
+      >
+        <img
+          alt=""
+          className="header--left__item-img"
+          src="icon.jpg"
+        />
+        <h2
+          className="header--left__item-text"
+        >
+          Movify
+        </h2>
+      </NavLink>
+    </div>
+    <div
+      className="header--right"
+    >
+      <NavLink
+        className="u-btn-colorized"
+        to="/create"
+      >
+        Create
+      </NavLink>
+      <button
+        className="u-btn-colorized u-btn-colorized-active"
+        onClick={[Function]}
+      >
+        Logout
+      </button>
+    </div>
+  </div>
+</header>
+`;
 
-exports[`should render header correctly when user is logged in but email is not verified 1`] = `ShallowWrapper {}`;
+exports[`should render header correctly when user is logged in but email is not verified 1`] = `
+<header
+  className="header"
+>
+  <div
+    className="container header__container"
+  >
+    <div
+      className="header--left"
+    >
+      <NavLink
+        className="header--left__item"
+        to="/"
+      >
+        <img
+          alt=""
+          className="header--left__item-img"
+          src="icon.jpg"
+        />
+        <h2
+          className="header--left__item-text"
+        >
+          Movify
+        </h2>
+      </NavLink>
+    </div>
+    <div
+      className="header--right"
+    >
+      <Connect(VerifyEmailBtn) />
+      <NavLink
+        className="u-btn-colorized"
+        to="/create"
+      >
+        Create
+      </NavLink>
+      <button
+        className="u-btn-colorized u-btn-colorized-active"
+        onClick={[Function]}
+      >
+        Logout
+      </button>
+    </div>
+  </div>
+</header>
+`;
 
-exports[`should render header correctly when user is logged out 1`] = `ShallowWrapper {}`;
+exports[`should render header correctly when user is logged out 1`] = `
+<header
+  className="header"
+>
+  <div
+    className="container header__container"
+  >
+    <div
+      className="header--left"
+    >
+      <NavLink
+        className="header--left__item"
+        to="/"
+      >
+        <img
+          alt=""
+          className="header--left__item-img"
+          src="icon.jpg"
+        />
+        <h2
+          className="header--left__item-text"
+        >
+          Movify
+        </h2>
+      </NavLink>
+    </div>
+    <div
+      className="header--right"
+    >
+      <NavLink
+        className="u-btn-colorized"
+        to="/signUp"
+      >
+        SignUp
+      </NavLink>
+      <NavLink
+        className="u-btn-colorized u-btn-colorized-active"
+        to="login"
+      >
+        Login
+      </NavLink>
+    </div>
+  </div>
+</header>
+`;

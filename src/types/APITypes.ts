@@ -53,8 +53,9 @@ export type FireDBMovieItem = {
   id?: string;
   name: string;
   watched: boolean;
-  dateWatched: any;
+  dateWatched: string;
   whatYouLearnt: string;
   Poster: string;
-  createdAt: number;
+  createdAt: string;
+  updatedAt?: string;
 };

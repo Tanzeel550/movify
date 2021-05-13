@@ -1,0 +1,456 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`form should become update when actionType is update 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="row movie__form"
+  >
+    <div
+      className="col-4"
+    >
+      <img
+        alt=""
+        src="https://image.com"
+      />
+    </div>
+    <div
+      className="col-8"
+    >
+      <form
+        className="row"
+        onSubmit={[Function]}
+      >
+        <div
+          className="col-sm-12 row"
+        >
+          <div
+            className="col-sm-10 movie__form--label-name"
+          >
+            <label
+              htmlFor="name"
+            >
+              Name
+            </label>
+            <input
+              className="form-control"
+              id="name"
+              onChange={[Function]}
+              type="text"
+              value="The Dark Knight"
+            />
+          </div>
+          <div
+            className="col-sm-2"
+          >
+            <label
+              htmlFor="isWatched"
+            >
+              Watched
+            </label>
+            <input
+              className="form-check"
+              defaultChecked={true}
+              id="isWatched"
+              onChange={[Function]}
+              type="checkbox"
+              value="true"
+            />
+          </div>
+        </div>
+        <div
+          className="col-sm-12 row"
+        >
+          <div
+            className="col-lg-4 col-md-4"
+          >
+            <label
+              htmlFor="dateWatched"
+            >
+              Date Watched:
+            </label>
+            <input
+              className="form-control"
+              id="dateWatched"
+              onChange={[Function]}
+              type="date"
+              value="234567890"
+            />
+          </div>
+          <div
+            className="col-lg-8 col-md-8"
+          />
+          <div
+            className="col-sm-12"
+          >
+            <label
+              htmlFor="text-area"
+            >
+              What You Learnt from it?
+            </label>
+            <textarea
+              className="form-control"
+              id="text-area"
+              onChange={[Function]}
+              style={
+                Object {
+                  "height": 285,
+                }
+              }
+              value="The world is as good as we let it to be"
+            />
+          </div>
+        </div>
+        <div
+          className="col-sm-12 d-flex justify-content-center"
+        >
+          <button
+            className="btn btn-primary btn-lg mt-3"
+            onClick={[Function]}
+          >
+            Update
+          </button>
+          <button
+            className="btn btn-danger btn-lg mt-3"
+            onClick={[MockFunction]}
+          >
+            Remove
+          </button>
+        </div>
+      </form>
+    </div>
+    <div>
+      <PromiseLoading
+        area="GET_MOVIE_BY_TITLE"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`form should become update when actionType is update should update Form match the snapshot 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="row movie__form"
+  >
+    <div
+      className="col-4"
+    >
+      <img
+        alt=""
+        src=""
+      />
+    </div>
+    <div
+      className="col-8"
+    >
+      <form
+        className="row"
+        onSubmit={[Function]}
+      >
+        <div
+          className="col-sm-12 row"
+        >
+          <div
+            className="col-sm-10 movie__form--label-name"
+          >
+            <label
+              htmlFor="name"
+            >
+              Name
+            </label>
+            <input
+              className="form-control"
+              id="name"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            className="col-sm-2"
+          >
+            <label
+              htmlFor="isWatched"
+            >
+              Watched
+            </label>
+            <input
+              className="form-check"
+              defaultChecked={true}
+              id="isWatched"
+              onChange={[Function]}
+              type="checkbox"
+              value="true"
+            />
+          </div>
+        </div>
+        <div
+          className="col-sm-12 row"
+        >
+          <div
+            className="col-lg-4 col-md-4"
+          >
+            <label
+              htmlFor="dateWatched"
+            >
+              Date Watched:
+            </label>
+            <input
+              className="form-control"
+              id="dateWatched"
+              onChange={[Function]}
+              type="date"
+              value="2021-05-13"
+            />
+          </div>
+          <div
+            className="col-lg-8 col-md-8"
+          />
+          <div
+            className="col-sm-12"
+          >
+            <label
+              htmlFor="text-area"
+            >
+              What You Learnt from it?
+            </label>
+            <textarea
+              className="form-control"
+              id="text-area"
+              onChange={[Function]}
+              style={
+                Object {
+                  "height": 285,
+                }
+              }
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          className="col-sm-12 d-flex justify-content-center"
+          onClick={[Function]}
+        >
+          <button
+            className="btn btn-primary btn-lg mt-3"
+          >
+            Create
+          </button>
+        </div>
+      </form>
+    </div>
+    <div>
+      <PromiseLoading
+        area="GET_MOVIE_BY_TITLE"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should not render Date Watched and What You Learnt when watched is false 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="row movie__form"
+  >
+    <div
+      className="col-4"
+    >
+      <img
+        alt=""
+        src=""
+      />
+    </div>
+    <div
+      className="col-8"
+    >
+      <form
+        className="row"
+        onSubmit={[Function]}
+      >
+        <div
+          className="col-sm-12 row"
+        >
+          <div
+            className="col-sm-10 movie__form--label-name"
+          >
+            <label
+              htmlFor="name"
+            >
+              Name
+            </label>
+            <input
+              className="form-control"
+              id="name"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            className="col-sm-2"
+          >
+            <label
+              htmlFor="isWatched"
+            >
+              Watched
+            </label>
+            <input
+              className="form-check"
+              defaultChecked={true}
+              id="isWatched"
+              onChange={[Function]}
+              type="checkbox"
+              value="false"
+            />
+          </div>
+        </div>
+        <div
+          className="col-sm-12 d-flex justify-content-center"
+          onClick={[Function]}
+        >
+          <button
+            className="btn btn-primary btn-lg mt-3"
+          >
+            Create
+          </button>
+        </div>
+      </form>
+    </div>
+    <div>
+      <PromiseLoading
+        area="GET_MOVIE_BY_TITLE"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`should render MovieForm correctly 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="row movie__form"
+  >
+    <div
+      className="col-4"
+    >
+      <img
+        alt=""
+        src=""
+      />
+    </div>
+    <div
+      className="col-8"
+    >
+      <form
+        className="row"
+        onSubmit={[Function]}
+      >
+        <div
+          className="col-sm-12 row"
+        >
+          <div
+            className="col-sm-10 movie__form--label-name"
+          >
+            <label
+              htmlFor="name"
+            >
+              Name
+            </label>
+            <input
+              className="form-control"
+              id="name"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            className="col-sm-2"
+          >
+            <label
+              htmlFor="isWatched"
+            >
+              Watched
+            </label>
+            <input
+              className="form-check"
+              defaultChecked={true}
+              id="isWatched"
+              onChange={[Function]}
+              type="checkbox"
+              value="true"
+            />
+          </div>
+        </div>
+        <div
+          className="col-sm-12 row"
+        >
+          <div
+            className="col-lg-4 col-md-4"
+          >
+            <label
+              htmlFor="dateWatched"
+            >
+              Date Watched:
+            </label>
+            <input
+              className="form-control"
+              id="dateWatched"
+              onChange={[Function]}
+              type="date"
+              value="2021-05-13"
+            />
+          </div>
+          <div
+            className="col-lg-8 col-md-8"
+          />
+          <div
+            className="col-sm-12"
+          >
+            <label
+              htmlFor="text-area"
+            >
+              What You Learnt from it?
+            </label>
+            <textarea
+              className="form-control"
+              id="text-area"
+              onChange={[Function]}
+              style={
+                Object {
+                  "height": 285,
+                }
+              }
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          className="col-sm-12 d-flex justify-content-center"
+          onClick={[Function]}
+        >
+          <button
+            className="btn btn-primary btn-lg mt-3"
+          >
+            Create
+          </button>
+        </div>
+      </form>
+    </div>
+    <div>
+      <PromiseLoading
+        area="GET_MOVIE_BY_TITLE"
+      />
+    </div>
+  </div>
+</div>
+`;
