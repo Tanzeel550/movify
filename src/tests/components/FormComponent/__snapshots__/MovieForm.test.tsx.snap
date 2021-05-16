@@ -284,7 +284,7 @@ exports[`should render MovieForm correctly 1`] = `
               id="dateWatched"
               onChange={[Function]}
               type="date"
-              value="2021-05-13"
+              value=""
             />
           </div>
           <div

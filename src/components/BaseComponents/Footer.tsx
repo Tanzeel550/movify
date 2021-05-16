@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { skills1, skills2 } from '../../consts/fixtures';
+import { skills1, skills2 } from '../../consts/config';
 
 type Props = {
   skills: string[];

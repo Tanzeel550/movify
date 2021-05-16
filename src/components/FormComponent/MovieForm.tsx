@@ -32,12 +32,9 @@ const MovieForm: React.FC<Props> = ({
     return `${yyyy}-${mm}-${day}`;
   };
 
-  const [todayDate] = useState(formatDate(Date.now()));
   const [name, setName] = useState(movie?.name || '');
   const [watched, setWatched] = useState(movie?.watched || true);
-  const [dateWatched, setDateWatched] = useState(
-    movie?.dateWatched || todayDate
-  );
+  const [dateWatched, setDateWatched] = useState(movie?.dateWatched || '');
   const [whatYouLearnt, setWhatYouLearnt] = useState(
     movie?.whatYouLearnt || ''
   );

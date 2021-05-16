@@ -9,3 +9,15 @@ export const PROMISE_AREAS = {
   GET_ALL_MOVIES: 'GET_ALL_MOVIES',
   LOAD_PAGE: 'LOAD_PAGE',
 };
+
+export const skills1 = [
+  'Web Design',
+  'JavaScript Developer',
+  'React JS',
+  'Rest API',
+  'NodeJS',
+];
+
+export const skills2 = ['Company', 'Team', 'Careers'];
+
+export const TEST_MOVIES_SRC = 'movies_test';

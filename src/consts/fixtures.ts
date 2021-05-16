@@ -3,8 +3,9 @@ import {
   APISingleMovieResultBySearch,
   FireDBMovieItem,
 } from '../types/APITypes';
-import { AuthUserType } from '../types/AuthTypes';
+import { AuthUserType, TestUserType } from '../types/AuthTypes';
 
+// These movies are going to be used only for testing
 export const movies: FireDBMovieItem[] = [
   {
     id: '1234567',
@@ -14,6 +15,7 @@ export const movies: FireDBMovieItem[] = [
     whatYouLearnt: 'The world is as good as we let it to be',
     Poster: 'https://image.com',
     createdAt: '9876543',
+    updatedAt: '',
   },
   {
     id: '4567890',
@@ -23,6 +25,7 @@ export const movies: FireDBMovieItem[] = [
     whatYouLearnt: 'You can act like a man what is the matter with you?',
     Poster: 'https://godfather.com',
     createdAt: '987654567890',
+    updatedAt: '',
   },
   {
     id: '9ikjnbvfrty',
@@ -32,9 +35,11 @@ export const movies: FireDBMovieItem[] = [
     whatYouLearnt: 'Thanos will be defeated',
     Poster: 'https://avengers.com',
     createdAt: '69864123340404',
+    updatedAt: '',
   },
 ];
 
+// The following user is going to be used only for testing
 export const myUser: AuthUserType = {
   user: {
     name: 'Tanzeel',
@@ -46,15 +51,37 @@ export const myUser: AuthUserType = {
   },
 };
 
-export const skills1 = [
-  'Web Design',
-  'JavaScript Developer',
-  'React JS',
-  'Rest API',
-  'NodeJS',
+// we are setting type to object[] only because it is going to be used in testing purposes
+// otherwise the original user comes from the 'firebase'
+export const users: TestUserType[] = [
+  {
+    uid: 'user_1111',
+    name: 'Tanzeel',
+    email: 'tanzeelahmed550@gmail.com',
+    passion: 'Web Dev',
+    os: 'Kali Linux',
+    version: '1.0.0',
+    height: 5.5,
+  },
+  {
+    uid: 'user_2222',
+    name: 'Panda',
+    email: 'panda550@gmail.com',
+    passion: 'Ethical Hacker',
+    os: 'Windows',
+    version: '10.9980.78',
+    height: 15.9,
+  },
+  {
+    uid: 'user_3333',
+    name: 'Mike',
+    email: 'mikie123@gmail.com',
+    passion: 'AWS',
+    os: 'Ubuntu',
+    version: '12 LTS',
+    height: 8,
+  },
 ];
-
-export const skills2 = ['Company', 'Team', 'Careers'];
 
 export const email = 'unknownPerson123@uet.com';
 export const password = 'JonSnow';

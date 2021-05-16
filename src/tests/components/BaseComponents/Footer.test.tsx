@@ -3,7 +3,7 @@ import Footer, {
   SkillsComponent,
 } from '../../../components/BaseComponents/Footer';
 import React from 'react';
-import { skills1 } from '../../../consts/fixtures';
+import { skills1 } from '../../../consts/config';
 
 test('should render footer correctly', () => {
   const wrapper: ShallowWrapper<

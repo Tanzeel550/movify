@@ -33,6 +33,7 @@ exports[`should render UpdatePage correctly 1`] = `
         "dateWatched": "234567890",
         "id": "1234567",
         "name": "The Dark Knight",
+        "updatedAt": "",
         "watched": true,
         "whatYouLearnt": "The world is as good as we let it to be",
       }

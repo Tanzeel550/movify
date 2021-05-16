@@ -13,6 +13,7 @@ exports[`AllMoviesList Component should be rendered correctly 1`] = `
         "dateWatched": "234567890",
         "id": "1234567",
         "name": "The Dark Knight",
+        "updatedAt": "",
         "watched": true,
         "whatYouLearnt": "The world is as good as we let it to be",
       }
@@ -27,6 +28,7 @@ exports[`AllMoviesList Component should be rendered correctly 1`] = `
         "dateWatched": "98765434567",
         "id": "4567890",
         "name": "GodFather",
+        "updatedAt": "",
         "watched": false,
         "whatYouLearnt": "You can act like a man what is the matter with you?",
       }
@@ -41,6 +43,7 @@ exports[`AllMoviesList Component should be rendered correctly 1`] = `
         "dateWatched": "",
         "id": "9ikjnbvfrty",
         "name": "Avengers: EndGame",
+        "updatedAt": "",
         "watched": false,
         "whatYouLearnt": "Thanos will be defeated",
       }
